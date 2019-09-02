@@ -5,13 +5,14 @@ import Welcome from './example/Welcome';
 import Todo from './example/Todo'
 import Calculator from './example/Calculator'
 import logo from './images/logo.svg';
+const basename = process.env.NODE_ENV === 'production' ? '/react-training' : '/'
 
 function App() {
   return (
-    <Router>
+    <Router basename={basename}>
       <div className="App">
         <div className="aside">
-          <div style={{textAlign: 'center', borderBottom: '1px solid #fff'}}>
+          <div style={{ textAlign: 'center', borderBottom: '1px solid #fff' }}>
             <img src={logo} className="App-logo logo" alt="logo" />
           </div>
           <nav>

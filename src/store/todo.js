@@ -4,14 +4,16 @@ export default {
     this.dataSource = await new Promise(resolve => setTimeout(() => {
       resolve([
         {
-          name: "react"
+          name: "react",
+          // done: false
         },
         {
           name: "vue",
           done: true
         },
         {
-          name: "angular"
+          name: "angular",
+          // done: false
         }
       ])
     }, 1000))
