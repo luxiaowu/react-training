@@ -13,6 +13,10 @@
   },
   "dependencies": {
     "@ice/store": "^0.3.0",
+    "@icedesign/foundation-symbol": "^1.0.4",
+    "@icedesign/layout": "^1.0.8",
+    "@icedesign/styled-menu": "^1.0.6",
+    "antd": "^3.23.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1"
