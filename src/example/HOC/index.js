@@ -4,9 +4,9 @@ const HocExample = () => {
   const [comments, setComments] = useState([]);
   return (
     <div>
-      {comments.map(x => (
+      {/* {comments.map(x => (
         <Comment comment={x} key={x.id}></Comment>
-      ))}
+      ))} */}
     </div>
   );
 }

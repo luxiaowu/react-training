@@ -1,0 +1,8 @@
+.added {
+  background-color: #dfd;
+  border-color: #b4e2b4;
+}
+.removed {
+  background-color: #fee8e9;
+  border-color: #e9aeae;
+}

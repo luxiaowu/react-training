@@ -1,13 +1,15 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom'
-import { Breadcrumb } from "antd";
+import { useLocation } from 'react-router-dom';
+import { Breadcrumb } from '@alifd/next';
 
-const Location = ({ location }) => {
+const Location = () => {
+  const location = useLocation();
+
   return (
     <Breadcrumb style={{ margin: '16px 0' }}>
       <Breadcrumb.Item>{location.pathname}</Breadcrumb.Item>
     </Breadcrumb>
   );
-}
+};
 
-export default withRouter(Location);
+export default Location;

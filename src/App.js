@@ -1,74 +1,68 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, withRouter } from 'react-router-dom'
-// import Layout from '@icedesign/layout';
-// import Menu from "@icedesign/styled-menu";
-import FoundationSymbol from '@icedesign/foundation-symbol';
-import '@icedesign/layout/build/index.css'
-import '@icedesign/styled-menu/build/index.css'
-import './App.scss';
-import routes from './config/routes'
-import { asideMenu } from "./config/menu";
-
-import { Layout, Menu, Icon, Breadcrumb } from 'antd';
+import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
+import { Shell, Nav } from '@alifd/next';
+import routes from './config/routes';
 import Location from './components/Location';
+import { asideMenu } from './config/menu';
+import avatar from './assets/avatar.jpg';
+import './App.scss';
 
-const basename = process.env.NODE_ENV === 'production' ? '/react-training' : '/'
+const basename =
+  process.env.NODE_ENV === 'production' ? '/react-training' : '/';
 
 function App() {
   return (
-    <Router basename={basename}>
-      {/* <Layout fixable={true}>
-        <Layout.Aside type="primary" style={{ width: 200 }}>
-          <div className="logo" />
-          <Menu theme="dark">
+    <BrowserRouter basename={basename}>
+      <Shell style={{ height: '100%' }}>
+        <Shell.Branding>
+          <div className="rectangular"></div>
+          <span style={{ marginLeft: 10 }}>常用工具</span>
+        </Shell.Branding>
+        {/* <Shell.Navigation direction="hoz">
+          <Search
+            key="2"
+            shape="simple"
+            type="dark"
+            palceholder="Search"
+            style={{ width: '200px' }}
+          />
+        </Shell.Navigation> */}
+        <Shell.Action>
+          <img src={avatar} className="avatar" alt="用户头像" />
+          <span style={{ marginLeft: 10 }}>平凡之路</span>
+        </Shell.Action>
+
+        <Shell.Navigation>
+          {/* <div className="logo" /> */}
+          <Nav embeddable>
             {asideMenu.map(({ name, path, icon }, i) => (
-              <Menu.Item key={i}>
-                <Link to={path}><FoundationSymbol size="small" type={symbol} /> {name}</Link>
-              </Menu.Item>
+              <Nav.Item key={i} icon={icon}>
+                <Link to={path}>{name}</Link>
+              </Nav.Item>
             ))}
-          </Menu>
-        </Layout.Aside>
-        <Layout.Section>
-          <Layout.Header type="primary"></Layout.Header>
-          <Layout.Main scrollable={true}>
-            <Switch>
-              {routes.map(({ path, exact, component }, index) => (
-                <Route key={index} path={path} exact={exact} component={component} />
-              ))}
-            </Switch>
-          </Layout.Main>
-        </Layout.Section>
-      </Layout> */}
-      <Layout>
-        <Layout.Sider style={{ position: 'fixed', minHeight: '100vh', left: 0 }}>
-          <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            {asideMenu.map(({ name, path, icon }, i) => (
-              <Menu.Item key={i}>
-                <Link to={path}><Icon type={icon} /> {name}</Link>
-              </Menu.Item>
-            ))}
-          </Menu>
-        </Layout.Sider>
-        <Layout style={{ marginLeft: 200 }}>
-          <Layout.Header style={{ background: '#fff', padding: 0 }}></Layout.Header>
-          <Layout.Content style={{ margin: '0 16px' }}>
+          </Nav>
+        </Shell.Navigation>
+        <Shell.Content>
           <Location />
-            {/* <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb> */}
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              <Switch>
-                {routes.map(({ path, exact, component }, index) => (
-                  <Route key={index} path={path} exact={exact} component={component} />
-                ))}
-              </Switch>
-            </div>
-          </Layout.Content>
-        </Layout>
-      </Layout>
-    </Router>
+          <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+            <Routes>
+              {routes.map(
+                ({ path, exact, redirect, component: Component }, index) => (
+                  <Route
+                    key={index}
+                    path={path}
+                    exact={exact}
+                    element={
+                      redirect ? <Navigate replace to="/diff" /> : <Component />
+                    }
+                  />
+                )
+              )}
+            </Routes>
+          </div>
+        </Shell.Content>
+      </Shell>
+    </BrowserRouter>
   );
 }
 
