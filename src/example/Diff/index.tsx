@@ -72,7 +72,7 @@ const Index = () => {
       matching: 'words',
       highlight: true
     }
-    const diff2htmlUi = new (window as any).Diff2HtmlUI(
+    const diff2htmlUi = new Diff2HtmlUI(
       targetElement,
       diffString,
       configuration

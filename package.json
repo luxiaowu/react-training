@@ -13,20 +13,20 @@
   },
   "dependencies": {
     "@alifd/next": "^1.25.12",
-    "@ice/store": "^1.4.3",
     "ahooks": "^3.1.5",
     "diff": "^5.0.0",
     "moment": "^2.29.1",
     "qs": "^6.10.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "react-json-view": "^1.21.3",
-    "react-router-dom": "^6.2.1"
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@types/diff": "^5.0.2",
     "@types/qs": "^6.9.7",
     "@types/react": "^17.0.38",
+    "@types/react-dom": "^18.0.4",
     "eslint": "^8.6.0",
     "gh-pages": "^3.2.3",
     "node-sass": "^4.12.0",

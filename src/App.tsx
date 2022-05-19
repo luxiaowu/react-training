@@ -1,14 +1,13 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
-import { Shell, Nav } from '@alifd/next';
-import routes from './config/routes';
-import Location from './components/Location';
-import { asideMenu } from './config/menu';
-import avatar from './assets/avatar.jpg';
-import './App.scss';
+import React from 'react'
+import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom'
+import { Shell, Nav } from '@alifd/next'
+import routes from './config/routes'
+import Location from './components/Location'
+import { asideMenu } from './config/menu'
+import avatar from './assets/avatar.jpg'
+import './App.scss'
 
-const basename =
-  process.env.NODE_ENV === 'production' ? '/react-training' : '/';
+const basename = process.env.NODE_ENV === 'production' ? '/react-training' : '/'
 
 function App() {
   return (
@@ -46,24 +45,21 @@ function App() {
           <Location />
           <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
             <Routes>
-              {routes.map(
-                ({ path, exact, redirect, component: Component }, index) => (
-                  <Route
-                    key={index}
-                    path={path}
-                    exact={exact}
-                    element={
-                      redirect ? <Navigate replace to="/diff" /> : <Component />
-                    }
-                  />
-                )
-              )}
+              {routes.map(({ path, redirect, component: Component }, index) => (
+                <Route
+                  key={index}
+                  path={path}
+                  element={
+                    redirect ? <Navigate replace to="/diff" /> : <Component />
+                  }
+                />
+              ))}
             </Routes>
           </div>
         </Shell.Content>
       </Shell>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
