@@ -33,7 +33,7 @@ const routes = [
     component: HOC
   },
   {
-    path: '',
+    path: '*',
     component: NoMatch
   }
 ]

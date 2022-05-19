@@ -12,6 +12,10 @@ const asideMenu = [
     path: '/higher-order-components',
     icon: 'smile',
   },
+  { name: 'dynamic', path: '/dynamic', icon: 'smile' },
+  { name: '计算器', path: '/calculator', icon: 'smile' },
+  { name: 'chrome插件', path: '/chrome', icon: 'smile' },
+  { name: 'vscode插件', path: '/vscode', icon: 'smile' },
 ];
 
 export { asideMenu };
