@@ -4,18 +4,20 @@ const asideMenu = [
   {
     name: '状态提升',
     path: '/lifting-state-up',
-    icon: 'upload',
+    icon: 'upload'
   },
   { name: '待办事项', path: '/todo', icon: 'smile' },
   {
     name: '高阶组件',
     path: '/higher-order-components',
-    icon: 'smile',
+    icon: 'smile'
   },
   { name: 'dynamic', path: '/dynamic', icon: 'smile' },
+  { name: '神奇的CSS', path: '/magic-css', icon: 'smile' },
+  { name: '漩涡数组', path: '/vortex', icon: 'smile' },
   { name: '计算器', path: '/calculator', icon: 'smile' },
   { name: 'chrome插件', path: '/chrome', icon: 'smile' },
-  { name: 'vscode插件', path: '/vscode', icon: 'smile' },
-];
+  { name: 'vscode插件', path: '/vscode', icon: 'smile' }
+]
 
-export { asideMenu };
+export { asideMenu }
