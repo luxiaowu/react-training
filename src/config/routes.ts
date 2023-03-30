@@ -6,6 +6,7 @@ import Dynamic from '../example/Dynamic'
 import Diff from '../example/Diff'
 import MagicCss from '../example/MagicCss'
 import Vortex from '../example/Vortex'
+import IntersectionObserver from '../example/InfiniteScroll'
 import { HOC } from '../example'
 
 const routes = [
@@ -33,6 +34,10 @@ const routes = [
   {
     path: '/higher-order-components',
     component: HOC
+  },
+  {
+    path: '/infinite-scroll',
+    component: IntersectionObserver
   },
   {
     path: '/magic-css',

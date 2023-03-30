@@ -12,6 +12,11 @@ const asideMenu = [
     path: '/higher-order-components',
     icon: 'smile'
   },
+  {
+    name: '无限滚动',
+    path: '/infinite-scroll',
+    icon: 'smile'
+  },
   { name: 'dynamic', path: '/dynamic', icon: 'smile' },
   { name: '神奇的CSS', path: '/magic-css', icon: 'smile' },
   { name: '漩涡数组', path: '/vortex', icon: 'smile' },
