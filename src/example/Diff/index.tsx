@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useCallback, useEffect, useReducer } from 'react'
 import {
   Button,
   Collapse,
@@ -63,25 +63,28 @@ const Index = () => {
     toggle: toggleDiffStyle
   } = useSelections(['text', 'json'])
 
-  const draw = (id: string, diffString: string) => {
-    const targetElement = document.getElementById(id)
-    const configuration = {
-      drawFileList: false,
-      diffStyle: isDiffStyleSelected(id) ? 'char' : 'word',
-      outputFormat: isSelected(id) ? 'side-by-side' : 'line-by-line',
-      matching: 'words',
-      highlight: true
-    }
-    const diff2htmlUi = new Diff2HtmlUI(
-      targetElement,
-      diffString,
-      configuration
-    )
-    diff2htmlUi.draw()
-    diff2htmlUi.highlightCode()
-  }
+  const draw = useCallback(
+    (id: string, diffString: string) => {
+      const targetElement = document.getElementById(id)
+      const configuration = {
+        drawFileList: false,
+        diffStyle: isDiffStyleSelected(id) ? 'char' : 'word',
+        outputFormat: isSelected(id) ? 'side-by-side' : 'line-by-line',
+        matching: 'words',
+        highlight: true
+      }
+      const diff2htmlUi = new Diff2HtmlUI(
+        targetElement,
+        diffString,
+        configuration
+      )
+      diff2htmlUi.draw()
+      diff2htmlUi.highlightCode()
+    },
+    [isDiffStyleSelected, isSelected]
+  )
 
-  const showDiffHtml = () => {
+  const showDiffHtml = useCallback(() => {
     const diffText = createPatch(
       'text',
       left.parse ? left.orderText : left.text,
@@ -94,11 +97,21 @@ const Index = () => {
     )
     draw('text', diffText)
     draw('json', diffJson)
-  }
+  }, [
+    draw,
+    left.json,
+    left.orderText,
+    left.parse,
+    left.text,
+    right.json,
+    right.orderText,
+    right.parse,
+    right.text
+  ])
 
   useEffect(() => {
     showDiffHtml()
-  }, [diffStyleSelected, selected])
+  }, [diffStyleSelected, selected, showDiffHtml])
 
   return (
     <>

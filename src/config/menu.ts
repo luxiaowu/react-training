@@ -12,6 +12,7 @@ const asideMenu = [
     path: '/higher-order-components',
     icon: 'smile'
   },
+  { name: 'JsonForm', path: '/json-form', icon: 'smile' },
   {
     name: '无限滚动',
     path: '/infinite-scroll',

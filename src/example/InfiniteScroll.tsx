@@ -47,12 +47,14 @@ const InfiniteScroll = () => {
   }, [current, maxCurrent, fetchList])
 
   useEffect(() => {
-    if (lastElement.current) {
-      observer.current.observe(lastElement.current)
+    const observerInstance = observer.current
+    const lastElementDom = lastElement.current
+    if (lastElementDom) {
+      observerInstance.observe(lastElementDom)
     }
     return () => {
-      if (lastElement.current) {
-        observer.current.unobserve(lastElement.current)
+      if (lastElementDom) {
+        observerInstance.unobserve(lastElementDom)
       }
     }
   }, [])

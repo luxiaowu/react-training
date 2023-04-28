@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Checkbox, Icon } from '@alifd/next'
-import { useDispatch } from 'react-redux'
 import vortex from '../store/vortex'
 import { useAppSelector, useAppDispatch } from '../hooks'
 

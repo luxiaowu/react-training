@@ -8,6 +8,7 @@ import MagicCss from '../example/MagicCss'
 import Vortex from '../example/Vortex'
 import IntersectionObserver from '../example/InfiniteScroll'
 import { HOC } from '../example'
+import JsonForm from '../example/JsonForm'
 
 const routes = [
   {
@@ -35,6 +36,7 @@ const routes = [
     path: '/higher-order-components',
     component: HOC
   },
+  { path: '/json-form', component: JsonForm },
   {
     path: '/infinite-scroll',
     component: IntersectionObserver
